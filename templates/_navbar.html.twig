@@ -1,0 +1,41 @@
+{# Navbar incluse dans le layout principal pour s'afficher sur toutes les pages #}
+<nav class="site-navbar">
+    <div class="container">
+        <a class="brand" href="/">Admin Réseau</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+        <ul class="nav-items">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/posts">Articles</a></li>
+            <li><a href="/about">À propos</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .site-navbar{background:#243447;color:#fff;}
+    .site-navbar .container{max-width:1100px;margin:0 auto;padding:0.5rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .site-navbar .brand{font-weight:700;color:#fff;text-decoration:none}
+    .site-navbar .nav-items{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+    .site-navbar .nav-items a{color:#fff;text-decoration:none;padding:0.4rem 0.6rem;border-radius:4px}
+    .site-navbar .nav-items a:hover{background:rgba(255,255,255,0.06)}
+    .nav-toggle{display:none;background:transparent;border:0;color:#fff;font-size:1.25rem}
+    @media (max-width:700px){
+        .site-navbar .nav-items{position:absolute;left:0;right:0;top:100%;background:#243447;flex-direction:column;display:none;padding:0.5rem}
+        .site-navbar .nav-items.show{display:flex}
+        .nav-toggle{display:block}
+    }
+</style>
+
+<script>
+    (function(){
+        var btn=document.querySelector('.site-navbar .nav-toggle');
+        var list=document.querySelector('.site-navbar .nav-items');
+        if(!btn||!list) return;
+        btn.addEventListener('click',function(){
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            list.classList.toggle('show');
+        });
+    })();
+</script>
