@@ -1,20 +1,53 @@
+# ============================================
+#  Symfony - .gitignore officiel
+# ============================================
 
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
+### Symfony ###
 /var/
 /vendor/
-###< symfony/framework-bundle ###
+/node_modules/
+public/bundles/
+/public/build/
+.env.local
+.env.local.php
+.env.*.local
+/.env.local
+/.phpunit.result.cache
 
-###> phpunit/phpunit ###
+### Cache & logs ###
+/var/cache/*
+/var/log/*
+!var/cache/.gitkeep
+!var/log/.gitkeep
+
+### Composer ###
+/composer.phar
+/composer.lock
+
+### IDE ###
+.idea/
+.vscode/
+*.iml
+
+### System ###
+.DS_Store
+Thumbs.db
+
+### PHPUnit ###
 /phpunit.xml
-/.phpunit.cache/
-###< phpunit/phpunit ###
+.phpunit.cache
+.phpunit.result.cache
 
-###> symfony/asset-mapper ###
+### Misc ###
+/coverage/
+/.env.dev.local
+.env.prod.local
+.env.test.local
+
+### Frontend (si tu utilises Webpack/Vite) ###
+/public/build/
 /public/assets/
-/assets/vendor/
-###< symfony/asset-mapper ###
+/node_modules/
+
+### Sentry ###
+/.config/sentry/sentry-cli
