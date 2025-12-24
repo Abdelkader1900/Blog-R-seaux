@@ -10,6 +10,13 @@
 
 <div class="example-wrapper">
     <h1 class="text-center mb-5">Bienvenue sur mon blog !</h1>
-    <p class="text-center mb-5">Page de définitions</p>
+    
+    {% for definition in definitions %}
+    <section class="mb-4">
+        <div>{{ definition.Nom }}</div>
+        <div>{{ definition.Definition }}</div>
+    </section>
+    {% endfor %}            
+
 </div>
 {% endblock %}

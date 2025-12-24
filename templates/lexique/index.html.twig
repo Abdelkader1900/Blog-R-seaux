@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lexique index{% endblock %}
+
+{% block body %}
+    <h1>Lexique index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Definition</th>
+                <th>Categorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lexique in lexiques %}
+            <tr>
+                <td>{{ lexique.id }}</td>
+                <td>{{ lexique.Nom }}</td>
+                <td>{{ lexique.Definition }}</td>
+                <td>{{ lexique.Categorie }}</td>
+                <td>
+                    <a href="{{ path('app_lexique_show', {'id': lexique.id}) }}">show</a>
+                    <a href="{{ path('app_lexique_edit', {'id': lexique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lexique_new') }}">Create new</a>
+{% endblock %}

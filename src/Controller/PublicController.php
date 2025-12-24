@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\LexiqueRepository;
 
 final class PublicController extends AbstractController
 {
@@ -16,11 +17,10 @@ final class PublicController extends AbstractController
         ]);
     }
 
-    #[Route('/lexique', name: 'app_lexique')]
-    public function lexique(): Response
+    #[Route('/definition', name: 'app_definition')]
+    public function definition(LexiqueRepository $lexiqueRepository): Response
     {
-        return $this->render('public/lexique.html.twig', [
-            'controller_name' => 'PublicController',
-        ]);
+        $definitions = $lexiqueRepository->findAll();
+        return $this->render('public/lexique.html.twig', ['definitions' => $definitions,]);
     }
 }
