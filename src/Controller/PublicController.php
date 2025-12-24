@@ -23,4 +23,16 @@ final class PublicController extends AbstractController
         $definitions = $lexiqueRepository->findAll();
         return $this->render('public/lexique.html.twig', ['definitions' => $definitions,]);
     }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function contact(): Response
+    {
+        return $this->render('public/contact.html.twig');
+    }
+
+    #[Route('/notions', name: 'app_notions')]
+    public function notions(): Response
+    {
+        return $this->render('public/notions.html.twig');
+    }
 }
