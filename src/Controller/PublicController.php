@@ -15,4 +15,12 @@ final class PublicController extends AbstractController
             'controller_name' => 'PublicController',
         ]);
     }
+
+    #[Route('/lexique', name: 'app_lexique')]
+    public function lexique(): Response
+    {
+        return $this->render('public/lexique.html.twig', [
+            'controller_name' => 'PublicController',
+        ]);
+    }
 }
