@@ -10,13 +10,22 @@
 
 <div class="example-wrapper">
     <h1 class="text-center mb-5">Bienvenue sur mon blog !</h1>
-    
+    <div class="px-10  row">
     {% for definition in definitions %}
-    <section class="mb-4">
-        <div>{{ definition.Nom }}</div>
-        <div>{{ definition.Definition }}</div>
-    </section>
-    {% endfor %}            
+        <div class="col-md-6 mb-4">
+            <section>
+                <div class="text-center text-bold mb-3">
+                    <h2 class="h4 mb-0 definition-title">
+                        {{ definition.Nom }}
+                    </h2>
+                </div>
 
+                <div class="card border border-primary p-3 shadow-sm bg-white rounded h-100">
+                    {{ definition.Definition }}
+                </div>
+            </section>
+        </div>
+    {% endfor %}
+    </div>
 </div>
 {% endblock %}
