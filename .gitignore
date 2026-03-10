@@ -43,6 +43,9 @@ Thumbs.db
 /.env.dev.local
 .env.prod.local
 .env.test.local
+.env
+.env.dev
+.env.test
 
 ### Frontend (si tu utilises Webpack/Vite) ###
 /public/build/
